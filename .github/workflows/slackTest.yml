@@ -1,4 +1,4 @@
-- name: Post to a Slack channel
+name: Post to a Slack channel
   id: slack
   uses: slackapi/slack-github-action@v1.21.0
   with:
