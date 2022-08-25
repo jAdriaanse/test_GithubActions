@@ -4,11 +4,13 @@ jobs:
   Testing_Slack_Message: 
     name: Post to a Slack channel
     runs-on: windows-latest
-    id: slack
-    - uses: slackapi/slack-github-action@v1.21.0
+    steps:
+      - name: Post to a Slack channel
+        id: slack
+      - uses: slackapi/slack-github-action@v1.21.0
         with:
-        channel-id: 'C03V4JPBFM1'
-        #slack-message: "GitHub build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
-        slack-message: "Test Message 001"
+          channel-id: 'C03V4JPBFM1'
+          #slack-message: "GitHub build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
+          slack-message: "Test Message 001"
         env:
-        SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
