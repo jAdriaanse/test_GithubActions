@@ -2,7 +2,7 @@ name: Initial Build Workflow
 on: push
 jobs:
   Build-Node-Version: 
-    name: Build Node
+    name: Build Node Version
     runs-on: windows-latest
     steps:
       - run: node --version
