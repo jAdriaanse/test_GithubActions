@@ -6,6 +6,10 @@ jobs:
     runs-on: windows-latest
     steps:
       - run: node --version
+        name: Check node Version
       - run: npm --version
+        name: Check npm Version
       - uses: actions/checkout@v3
+        name: Checkout Code
       - run: dir
+        name: Run Dir
