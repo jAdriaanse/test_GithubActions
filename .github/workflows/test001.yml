@@ -33,6 +33,7 @@ jobs:
           # UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
           # UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
         with:
+          unityVersion: 2019.4.23f1
           targetPlatform: StandaloneWindows
         # Return License (Un-Comment if you're using a pro license)
         #- name: Return license
