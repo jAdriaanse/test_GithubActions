@@ -6,6 +6,25 @@ env:
   UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
 
 jobs:
+  game-ciTest:
+    - uses: game-ci/unity-test-runner@v2
+    env:
+      UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+    with:
+      projectPath: C:\Users\User-Pc\Desktop\Synology\Renderheads\Repos\test_GithubActions\github_actions_test
+      githubToken: ${{ secrets.GH_TOKEN }}
+
+    - name: Run tests
+      uses: webbertakken/unity-test-runner@v2
+      id: testRunner
+      with:
+        testMode: all
+
+    - uses: actions/upload-artifact@v2
+      with:
+        name: Test results (all modes)
+        path: ${{ steps.testRunner.outputs.artifactsPath }}
+
   testRunner:
     name: Test all modes
     runs-on: ubuntu-latest
@@ -47,6 +66,8 @@ jobs:
         uses: webbertakken/unity-test-runner@v2
         id: testRunner
         with:
+          projectPath: C:\Users\User-Pc\Desktop\Synology\Renderheads\Repos\test_GithubActions\github_actions_test
+          githubToken: ${{ secrets.GH_TOKEN }}
           testMode: all
 
       - uses: actions/upload-artifact@v2
