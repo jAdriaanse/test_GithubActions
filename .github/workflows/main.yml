@@ -12,7 +12,7 @@ jobs:
         projectPath: C:\Users\User-Pc\Desktop\Synology\Renderheads\Repos\test_GithubActions\github_actions_test\ProjectSettings
         githubToken: ${{ secrets.GH_TOKEN }}
 
- testRunner:
+  testRunner:
    name: Test all modes 📝
    runs-on: ubuntu-latest
    steps:
