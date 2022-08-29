@@ -6,15 +6,24 @@ env:
   UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
 
 jobs:
-  testRunner:
-    name: Test in ${{ matrix.testMode }} ✨
+  checkLicense:
+    name: Check for the Unity License
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        testMode:
-          - EditMode
-          - PlayMode
+    steps:
+      - name: Fail - No License
+        if: ${{ !startsWith(env.UNITY_LICENSE, '<') }}
+        run: exit 1
+
+  testRunner:
+    needs: checkLicense
+    name: Test all modes
+    runs-on: ubuntu-latest
+#    strategy:
+#      fail-fast: false
+#      matrix:
+#        testMode:
+#          - EditMode
+#          - PlayMode
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
