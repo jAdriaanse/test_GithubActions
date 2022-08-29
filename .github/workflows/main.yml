@@ -2,11 +2,12 @@ name: GameCI Template 🎮
 
 on: push
 
-env:
-  UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-with:
-  projectPath: C:\Users\User-Pc\Desktop\Synology\Renderheads\Repos\test_GithubActions\github_actions_test\ProjectSettings
-  githubToken: ${{ secrets.GH_TOKEN }}
+- uses: game-ci/unity-test-runner@v2
+  env:
+    UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+  with:
+    projectPath: C:\Users\User-Pc\Desktop\Synology\Renderheads\Repos\test_GithubActions\github_actions_test\ProjectSettings
+    githubToken: ${{ secrets.GH_TOKEN }}
 
 jobs:
  testRunner:
