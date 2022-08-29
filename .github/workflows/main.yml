@@ -47,7 +47,7 @@ jobs:
         uses: webbertakken/unity-test-runner@v2
         id: testRunner
         with:
-          projectPath: C:\Users\User-Pc\Desktop\Synology\Renderheads\Repos\test_GithubActions\github_actions_test
+          projectPath: C:\Users\User-Pc\Desktop\Synology\Renderheads\Repos\test_GithubActions
           githubToken: ${{ secrets.GH_TOKEN }}
           testMode: all
 
