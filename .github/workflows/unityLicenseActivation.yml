@@ -8,7 +8,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: webbertakken/unity-request-manual-activation-file@v2
+      - uses: game-ci/unity-request-manual-activation-file@v2
+        name: Request manual activation file
         id: getManualLicenseFile
 
       - uses: actions/upload-artifact@v2
