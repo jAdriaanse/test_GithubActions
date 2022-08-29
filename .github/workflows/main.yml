@@ -6,27 +6,30 @@ env:
   UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
 
 jobs:
-  game-ciTest:
-    - uses: game-ci/unity-test-runner@v2
-    env:
-      UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-    with:
-      projectPath: C:\Users\User-Pc\Desktop\Synology\Renderheads\Repos\test_GithubActions\github_actions_test
-      githubToken: ${{ secrets.GH_TOKEN }}
-
-    - name: Run tests
-      uses: webbertakken/unity-test-runner@v2
-      id: testRunner
+  testRunner001:
+    name: Test all modes 001
+    runs-on: ubuntu-latest
+    steps:
+      - uses: game-ci/unity-test-runner@v2
+      env:
+        UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
       with:
-        testMode: all
+        projectPath: C:\Users\User-Pc\Desktop\Synology\Renderheads\Repos\test_GithubActions\github_actions_test
+        githubToken: ${{ secrets.GH_TOKEN }}
 
-    - uses: actions/upload-artifact@v2
-      with:
-        name: Test results (all modes)
-        path: ${{ steps.testRunner.outputs.artifactsPath }}
+      - name: Run tests
+        uses: webbertakken/unity-test-runner@v2
+        id: testRunner
+        with:
+          testMode: all
 
-  testRunner:
-    name: Test all modes
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Test results (all modes)
+          path: ${{ steps.testRunner.outputs.artifactsPath }}
+
+  testRunner002:
+    name: Test all modes 002
     runs-on: ubuntu-latest
 #    strategy:
 #      fail-fast: false
