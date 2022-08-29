@@ -1,0 +1,55 @@
+# name: Post to a Slack channel
+# on: push
+# jobs:
+#   Testing_Slack_Message: 
+#     name: Post to a Slack channel
+#     runs-on: windows-latest
+#     steps:
+#       - name: Update Slack Message
+#         id: slack
+#         uses: slackapi/slack-github-action@v1.21.0
+#         with:
+#           channel-id: "C03V4JPBFM1"
+#           payload: |
+#             {
+#               "text": "Deployment started (In Progress)",
+#               "attachments": [
+#                 {
+#                   "pretext": "Deployment started",
+#                   "color": "dbab09",
+#                   "fields": [
+#                     {
+#                       "title": "Status",
+#                       "short": true,
+#                       "value": "In Progress"
+#                     }
+#                   ]
+#                 }
+#               ]
+#             }
+#         env:
+#           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN}}
+#       - uses: slackapi/slack-github-action@v1.21.0
+#         with:
+#           channel-id: "C03V4JPBFM1"
+#           update-ts: ${{ steps.slack.outputs.ts }}
+#           payload: |
+#             {
+#               "text": "Deployment finished (Completed)",
+#               "attachments": [
+#                 {
+#                   "pretext": "Deployment finished",
+#                   "color": "28a745",
+#                   "fields": [
+#                     {
+#                       "title": "Status",
+#                       "short": true,
+#                       "value": "Completed"
+#                     }
+#                   ]
+#                 }
+#               ]
+#             }
+#         env:
+#           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN}}
+#           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN}}
