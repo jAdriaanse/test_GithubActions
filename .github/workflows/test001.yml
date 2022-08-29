@@ -21,7 +21,6 @@ jobs:
           #path: C:\Users\User-Pc\Desktop\Synology\Renderheads\Repos\test_GithubActions\github_actions_test
           path: https://github.com/jAdriaanse/test_GithubActions/github_actions_test/ProjectSettings/ProjectVersion.txt
           key: Library-test_GithubActions-StandaloneWindows
-          restore-keys: | Library-test_GithubActions-Library
 
       # Build
       - name: Build project
