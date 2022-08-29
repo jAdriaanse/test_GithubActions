@@ -4,6 +4,9 @@ on: push
 
 env:
   UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+with:
+  projectPath: C:\Users\User-Pc\Desktop\Synology\Renderheads\Repos\test_GithubActions\github_actions_test\ProjectSettings
+  githubToken: ${{ secrets.GH_TOKEN }}
 
 jobs:
  testRunner:
@@ -42,7 +45,6 @@ jobs:
        id: testRunner
        with:
          testMode: all
-         projectPath: "\ProjectSettings\ProjectVersion.txt"
 
      - uses: actions/upload-artifact@v2
        with:
