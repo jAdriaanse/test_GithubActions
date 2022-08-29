@@ -42,7 +42,7 @@ jobs:
        id: testRunner
        with:
          testMode: all
-         projectPath: "C:\Users\User-Pc\Desktop\Synology\Renderheads\Repos\test_GithubActions\github_actions_test\ProjectSettings\ProjectVersion.txt"
+         path: ProjectSettings\ProjectVersion.txt
 
      - uses: actions/upload-artifact@v2
        with:
