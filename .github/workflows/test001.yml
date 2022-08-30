@@ -23,7 +23,7 @@ jobs:
           channel-id: "C03V4JPBFM1"
           payload: |
             {
-              "text": "Deployment started (In Progress)",
+              "text": "Deployment started (In Progress)",             
               "attachments": [
                 {
                   "pretext": "Deployment status",
@@ -32,7 +32,7 @@ jobs:
                     {
                       "title": "Status",
                       "short": true,
-                      "value": "Build in Progress:"
+                      "value": "Build in Progress:",
                       "text": "https://github.com/jAdriaanse/test_GithubActions/commit/$GITHUB_SHA/checks"
                     }
                   ]
@@ -90,7 +90,7 @@ jobs:
                     {
                       "title": "Status",
                       "short": true,
-                      "value": "Build Completed:"
+                      "value": "Build Completed:",
                       "text": "https://github.com/jAdriaanse/test_GithubActions/commit/$GITHUB_SHA/checks"
                     }
                   ]
