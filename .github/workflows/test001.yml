@@ -18,8 +18,7 @@ jobs:
       # Cache
       - uses: actions/cache@v2
         with:
-          #path: C:\Users\User-Pc\Desktop\Synology\Renderheads\Repos\test_GithubActions\github_actions_test
-          path: https://github.com/jAdriaanse/test_GithubActions/github_actions_test
+          projectPath: "./github_actions_test/Library"
           key: Library-test_GithubActions-StandaloneWindows
 
       # Build
