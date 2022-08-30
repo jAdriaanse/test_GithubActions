@@ -1,5 +1,4 @@
 name: Build Project
-#THIS IS A TEST
 on: [push]
 jobs:
   build:
@@ -36,7 +35,7 @@ jobs:
         with:
           #unityVersion: 2019.4.23f1
           projectPath: "./github_actions_test"
-          targetPlatform: StandaloneWindows64
+          targetPlatform: WebGL
         # Return License (Un-Comment if you're using a pro license)
         #- name: Return license
         #  uses: game-ci/unity-return-license@v1
