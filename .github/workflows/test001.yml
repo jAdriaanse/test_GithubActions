@@ -44,8 +44,8 @@ jobs:
       - uses: actions/cache@v2
         with:
           #path: C:\Users\User-Pc\Desktop\Synology\Renderheads\Repos\test_GithubActions\github_actions_test
-          path: https://github.com/jAdriaanse/test_GithubActions/github_actions_test
-          key: Library-test_GithubActions-StandaloneWindows
+          path: "./github_actions_test/Library"
+          key: unity-library-forCaching
 
       # Build
       - name: Build project
@@ -58,7 +58,7 @@ jobs:
           # UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
           # UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
         with:
-          unityVersion: 2019.4.23f1
+          projectPath: "./github_actions_test"
           targetPlatform: StandaloneWindows
         # Return License (Un-Comment if you're using a pro license)
         #- name: Return license
