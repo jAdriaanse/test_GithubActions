@@ -33,7 +33,7 @@ jobs:
               "text": "Deployment started (In Progress)",
               "attachments": [
                 {
-                  "pretext": "Deployment started",
+                  "pretext": "Deployment status",
                   "color": "dbab09",
                   "fields": [
                     {
@@ -77,25 +77,25 @@ jobs:
       - name: Post  completed to a Slack channel
         uses: slackapi/slack-github-action@v1.21.0
         with:
-        channel-id: "C03V4JPBFM1"
-        update-ts: ${{ steps.slack.outputs.ts }}
-        payload: |
-          {
-            "text": "Deployment finished",
-            "attachments": [
-              {
-                "pretext": "Deployment finished",
-                "color": "28a745",
-                "fields": [
-                  {
-                    "title": "Status",
-                    "short": true,
-                    "value": "Build Completed:"
-                    "text": "https://github.com/jAdriaanse/test_GithubActions/commit/$GITHUB_SHA/checks"
-                  }
-                ]
-              }
-            ]
-          }
-        env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN}}
+          channel-id: "C03V4JPBFM1"
+          update-ts: ${{ steps.slack.outputs.ts }}
+          payload: |
+            {
+              "text": "Deployment finished",
+              "attachments": [
+                {
+                  "pretext": "Deployment status",
+                  "color": "28a745",
+                  "fields": [
+                    {
+                      "title": "Status",
+                      "short": true,
+                      "value": "Build Completed:"
+                      "text": "https://github.com/jAdriaanse/test_GithubActions/commit/$GITHUB_SHA/checks"
+                    }
+                  ]
+                }
+              ]
+            }
+          env:
+            SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN}}
