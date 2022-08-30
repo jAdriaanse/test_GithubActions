@@ -18,7 +18,7 @@ jobs:
       # Cache
       - uses: actions/cache@v2
         with:
-          projectPath: "./github_actions_test/Library"
+          path: "./github_actions_test/Library"
           key: Library-test_GithubActions-StandaloneWindows
 
       # Build
