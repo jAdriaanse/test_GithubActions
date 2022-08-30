@@ -54,6 +54,7 @@ jobs:
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
+          projectPath: "./github_actions_test"
           githubToken: ${{ secrets.GITHUB_TOKEN }}
 
       # Build
