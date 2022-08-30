@@ -26,7 +26,6 @@ jobs:
               "text": "Deployment Started",
               "attachments": [
                 {
-                  "pretext": "Build In Progress",
                   "color": "dbab09",
                   "fields": [
                     {
@@ -85,7 +84,6 @@ jobs:
               "text": "Deployment Finished",
               "attachments": [
                 {
-                  "pretext": "Build Completed",
                   "color": "28a745",
                   "fields": [
                     {
@@ -112,7 +110,6 @@ jobs:
               "text": "Deployment Canceled",
               "attachments": [
                 {
-                  "pretext": "Build Canceled",
                   "color": "8b0000",
                   "fields": [
                     {
@@ -139,7 +136,6 @@ jobs:
               "text": "Deployment Failed",
               "attachments": [
                 {
-                  "pretext": "Build Failed",
                   "color": "8b0000",
                   "fields": [
                     {
