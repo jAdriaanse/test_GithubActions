@@ -19,7 +19,7 @@ jobs:
       - uses: actions/cache@v2
         with:
           path: "./github_actions_test/Library"
-          key: Library-test_GithubActions-StandaloneWindows
+          key: ${{ runner.os }}-library
 
       # Build
       - name: Build project
