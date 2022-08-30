@@ -73,7 +73,7 @@ jobs:
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN}}
       # Posting an "completed" message to slack
-        uses: slackapi/slack-github-action@v1.21.0
+      - uses: slackapi/slack-github-action@v1.21.0
         with:
           channel-id: "C03V4JPBFM1"
           update-ts: ${{ steps.slack.outputs.ts }}
