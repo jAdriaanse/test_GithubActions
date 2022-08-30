@@ -32,7 +32,7 @@ jobs:
                     {
                       "title": "Status",
                       "short": true,
-                      "value": "Build in Progress: \\n https://github.com/jAdriaanse/test_GithubActions/commit/$GITHUB_SHA/checks"
+                      "value": "Build in Progress: \ https://github.com/jAdriaanse/test_GithubActions/actions/runs/" + ${{ github.run_id }}
                     }
                   ]
                 }
@@ -89,7 +89,7 @@ jobs:
                     {
                       "title": "Status",
                       "short": true,
-                      "value": "Build Completed: \\n https://github.com/jAdriaanse/test_GithubActions/commit/$GITHUB_SHA/checks"
+                      "value": "Build Completed: \ https://github.com/jAdriaanse/test_GithubActions/actions/runs/" + ${{ github.run_id }}
                     }
                   ]
                 }
