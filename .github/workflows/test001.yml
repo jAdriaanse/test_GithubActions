@@ -23,7 +23,7 @@ jobs:
           channel-id: "C03V4JPBFM1"
           payload: |
             {
-              "text": "Deployment Started",
+              "text": "Deployment Started.",
               "attachments": [
                 {
                   "color": "dbab09",
@@ -81,7 +81,7 @@ jobs:
           update-ts: ${{ steps.slack.outputs.ts }}
           payload: |
             {
-              "text": "Deployment Finished",
+              "text": "Deployment Finished.",
               "attachments": [
                 {
                   "color": "28a745",
@@ -107,7 +107,7 @@ jobs:
           update-ts: ${{ steps.slack.outputs.ts }}
           payload: |
             {
-              "text": "Deployment Canceled",
+              "text": "Deployment Canceled.",
               "attachments": [
                 {
                   "color": "8b0000",
@@ -133,7 +133,7 @@ jobs:
           update-ts: ${{ steps.slack.outputs.ts }}
           payload: |
             {
-              "text": "Deployment Failed",
+              "text": "Deployment Failed.",
               "attachments": [
                 {
                   "color": "8b0000",
