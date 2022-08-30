@@ -59,7 +59,7 @@ jobs:
           # UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
         with:
           projectPath: "./github_actions_test"
-          targetPlatform: StandaloneWindows
+          targetPlatform: StandaloneWindows64
         # Return License (Un-Comment if you're using a pro license)
         #- name: Return license
         #  uses: game-ci/unity-return-license@v1
