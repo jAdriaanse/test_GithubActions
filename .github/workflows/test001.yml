@@ -23,10 +23,9 @@ jobs:
           channel-id: "C03V4JPBFM1"
           payload: |
             {
-              "text": "Deployment Started",
+              "text": "Deployment Started.",
               "attachments": [
                 {
-                  "pretext": "Build In Progress",
                   "color": "dbab09",
                   "fields": [
                     {
@@ -42,20 +41,11 @@ jobs:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN}}
 
       # Cache
-      - name: Cache Library
-        uses: actions/cache@v3
+      - uses: actions/cache@v2
         with:
-          path: "./github_actions_test/Library"
-          key: ${{ runner.os }}-library
-
-      # Test
-      - name: Run tests
-        uses: game-ci/unity-test-runner@v2
-        env:
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-        with:
-          projectPath: "./github_actions_test"
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          #path: C:\Users\User-Pc\Desktop\Synology\Renderheads\Repos\test_GithubActions\github_actions_test
+          path: https://github.com/jAdriaanse/test_GithubActions/github_actions_test
+          key: Library-test_GithubActions-StandaloneWindows
 
       # Build
       - name: Build project
@@ -68,9 +58,8 @@ jobs:
           # UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
           # UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
         with:
-          #unityVersion: 2019.4.23f1
-          projectPath: "./github_actions_test"
-          targetPlatform: StandaloneWindows64
+          unityVersion: 2019.4.23f1
+          targetPlatform: StandaloneWindows
         # Return License (Un-Comment if you're using a pro license)
         #- name: Return license
         #  uses: game-ci/unity-return-license@v1
@@ -83,23 +72,76 @@ jobs:
           path: build
 
       
-      # Posting a "completed" message to slack
-      - uses: slackapi/slack-github-action@v1.21.0
+      # Posting an "completed" message to slack
+      - name: Post success to a Slack channel
+        if: ${{ success() }}
+        uses: slackapi/slack-github-action@v1.21.0
         with:
           channel-id: "C03V4JPBFM1"
           update-ts: ${{ steps.slack.outputs.ts }}
           payload: |
             {
-              "text": "Deployment Finished",
+              "text": "Deployment Finished.",
               "attachments": [
                 {
-                  "pretext": "Build Completed",
                   "color": "28a745",
                   "fields": [
                     {
                       "title": "Status",
                       "short": true,
                       "value": "Build Completed: \n https://github.com/jAdriaanse/test_GithubActions/actions/runs/${{ github.run_id }}"
+                    }
+                  ]
+                }
+              ]
+            }
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN}}
+
+      # Posting an "cancelled" message to slack
+      - name: Post cancel to a Slack channel
+        if: ${{ cancelled() }}
+        uses: slackapi/slack-github-action@v1.21.0
+        with:
+          channel-id: "C03V4JPBFM1"
+          update-ts: ${{ steps.slack.outputs.ts }}
+          payload: |
+            {
+              "text": "Deployment Canceled.",
+              "attachments": [
+                {
+                  "color": "8b0000",
+                  "fields": [
+                    {
+                      "title": "Status",
+                      "short": true,
+                      "value": "Build Canceled: \n https://github.com/jAdriaanse/test_GithubActions/actions/runs/${{ github.run_id }}"
+                    }
+                  ]
+                }
+              ]
+            }
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN}}
+
+      # Posting an "failure" message to slack
+      - name: Post failure to a Slack channel
+        if: ${{ failure() }}
+        uses: slackapi/slack-github-action@v1.21.0
+        with:
+          channel-id: "C03V4JPBFM1"
+          update-ts: ${{ steps.slack.outputs.ts }}
+          payload: |
+            {
+              "text": "Deployment Failed.",
+              "attachments": [
+                {
+                  "color": "8b0000",
+                  "fields": [
+                    {
+                      "title": "Status",
+                      "short": true,
+                      "value": "Build Failed: \n https://github.com/jAdriaanse/test_GithubActions/actions/runs/${{ github.run_id }}"
                     }
                   ]
                 }
