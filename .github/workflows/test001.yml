@@ -22,6 +22,33 @@ jobs:
           path: https://github.com/jAdriaanse/test_GithubActions/github_actions_test
           key: Library-test_GithubActions-StandaloneWindows
 
+      # Posting an "in progress" message to slack
+      - name: Post in progress to a Slack channel
+        id: slack
+        uses: slackapi/slack-github-action@v1.21.0
+        with:
+          channel-id: "C03V4JPBFM1"
+          payload: |
+            {
+              "text": "Deployment started (In Progress)",
+              "attachments": [
+                {
+                  "pretext": "Deployment started",
+                  "color": "dbab09",
+                  "fields": [
+                    {
+                      "title": "Status",
+                      "short": true,
+                      "value": "Build in Progress:"
+                      "text": "https://github.com/jAdriaanse/test_GithubActions/commit/$GITHUB_SHA/checks"
+                    }
+                  ]
+                }
+              ]
+            } 
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN}}
+
       # Build
       - name: Build project
         uses: game-ci/unity-builder@v2
@@ -45,3 +72,30 @@ jobs:
         with:
           name: Build
           path: build
+
+      # Posting an "completed" message to slack
+      - name: Post  completed to a Slack channel
+        uses: slackapi/slack-github-action@v1.21.0
+        with:
+        channel-id: "C03V4JPBFM1"
+        update-ts: ${{ steps.slack.outputs.ts }}
+        payload: |
+          {
+            "text": "Deployment finished",
+            "attachments": [
+              {
+                "pretext": "Deployment finished",
+                "color": "28a745",
+                "fields": [
+                  {
+                    "title": "Status",
+                    "short": true,
+                    "value": "Build Completed:"
+                    "text": "https://github.com/jAdriaanse/test_GithubActions/commit/$GITHUB_SHA/checks"
+                  }
+                ]
+              }
+            ]
+          }
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN}}
