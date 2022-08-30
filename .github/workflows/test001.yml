@@ -15,6 +15,32 @@ jobs:
         with:
           lfs: true
 
+      # Posting an "in progress" message to slack
+      - name: Post status to a Slack channel
+        id: slack
+        uses: slackapi/slack-github-action@v1.21.0
+        with:
+          channel-id: "C03V4JPBFM1"
+          payload: |
+            {
+              "text": "Deployment Started",
+              "attachments": [
+                {
+                  "pretext": "Build In Progress",
+                  "color": "dbab09",
+                  "fields": [
+                    {
+                      "title": "Status",
+                      "short": true,
+                      "value": "Build in Progress: \n https://github.com/jAdriaanse/test_GithubActions/actions/runs/${{ github.run_id }}"
+                    }
+                  ]
+                }
+              ]
+            } 
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN}}
+
       # Cache
       - name: Cache Library
         uses: actions/cache@v3
@@ -46,3 +72,29 @@ jobs:
         with:
           name: Build
           path: build
+
+      
+      # Posting an "completed" message to slack
+      - uses: slackapi/slack-github-action@v1.21.0
+        with:
+          channel-id: "C03V4JPBFM1"
+          update-ts: ${{ steps.slack.outputs.ts }}
+          payload: |
+            {
+              "text": "Deployment Finished",
+              "attachments": [
+                {
+                  "pretext": "Build Completed",
+                  "color": "28a745",
+                  "fields": [
+                    {
+                      "title": "Status",
+                      "short": true,
+                      "value": "Build Completed: \n https://github.com/jAdriaanse/test_GithubActions/actions/runs/${{ github.run_id }}"
+                    }
+                  ]
+                }
+              ]
+            }
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN}}
