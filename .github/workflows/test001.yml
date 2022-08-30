@@ -83,7 +83,7 @@ jobs:
           path: build
 
       
-      # Posting an "completed" message to slack
+      # Posting a "completed" message to slack
       - uses: slackapi/slack-github-action@v1.21.0
         with:
           channel-id: "C03V4JPBFM1"
