@@ -1,5 +1,5 @@
 echo Pushing to channel ${ITCH_GAMEID}
-"${GITHUB_WORKSPACE}/.github/workflows/butlerwindows/butler" push "${GITHUB_WORKSPACE}/../../_builds/Windows/METAVOIDAL" "${ITCH_USERNAME}/${ITCH_GAMEID}" --userversion-file buildnumber.txt
+"${GITHUB_WORKSPACE}/.github/workflows/butlerwindows/butler" push "${GITHUB_WORKSPACE}/../../_builds/" "${ITCH_USERNAME}/${ITCH_GAMEID}" --userversion-file buildnumber.txt
 
 echo "...."
 echo "..."
