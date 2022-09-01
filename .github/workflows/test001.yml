@@ -57,7 +57,7 @@ jobs:
       # Build
       - name: Build project
         #uses: game-ci/unity-builder@v2
-        runs: .github/workflows/BuildWindows.sh
+        run: .github/workflows/BuildWindows.sh
         shell: sh
         env:
           # Comment this out if you're using a pro license
