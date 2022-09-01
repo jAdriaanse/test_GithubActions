@@ -3,8 +3,8 @@ name: Build Project
 on: [push]
 
 env: 
-  BUTLER_API_KEY:
-  ITCH_USERNAME: evil-josh
+  BUTLER_API_KEY: JcoFFwJMKoodKDpICAWbe0cStfD5q0gE7IGmZG8i
+  ITCH_USERNAME: eviL_joSh
   ITCH_GAMEID: testing-github-actions
 
 jobs:
