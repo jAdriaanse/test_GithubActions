@@ -57,7 +57,7 @@ jobs:
       # Build
       - name: Build project
         #uses: game-ci/unity-builder@v2
-        run: .github/workflows/BuildWindows.sh
+        run: /.github/workflows/BuildWindows.sh
         shell: sh
         #env:
           # Comment this out if you're using a pro license
@@ -168,5 +168,5 @@ jobs:
     runs-on: windows
     steps:
       - name: Publish Private Windows Build Via Butler
-        run: .github/workflows/PublishWindowsBuild.sh
+        run: /.github/workflows/PublishWindowsBuild.sh
         shell: sh
