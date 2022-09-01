@@ -57,7 +57,7 @@ jobs:
       # Build
       - name: Build project
         #uses: game-ci/unity-builder@v2
-        run: /.github/workflows/BuildWindows.sh
+        run: .github/workflows/BuildWindows.sh
         shell: sh
         #env:
           # Comment this out if you're using a pro license
@@ -163,10 +163,6 @@ jobs:
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN}}
   
-  publish:
-    name: Upload to Itch
-    runs-on: windows
-    steps:
-      - name: Publish Private Windows Build Via Butler
-        run: /.github/workflows/PublishWindowsBuild.sh
+      - name: Upload to itch.io
+        run: .github/workflows/PublishWindowsBuild.sh
         shell: sh
