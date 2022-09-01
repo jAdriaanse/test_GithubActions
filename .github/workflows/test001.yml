@@ -3,8 +3,9 @@ name: Build Project
 on: [push]
 
 env: 
+  BUTLER_API_KEY:
   ITCH_USERNAME: evil-josh
-  ITCH_GAME_ID: testing-github-actions
+  ITCH_GAMEID: testing-github-actions
 
 jobs:
   build:
@@ -156,27 +157,10 @@ jobs:
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN}}
   
-  # publish:
-  #   name: Upload to Itch
-  #   runs-on: ubuntu-latest
-  #   strategy:
-  #     fail-fast: true
-  #     matrix:
-  #       channel:
-  #         - windows
-  #         - mac
-  #   runs-on: ubuntu-latest
-  #   name: Deploy - Itch.io ${{ matrix.template }}
-  #   steps:
-  #     - uses: actions/download-artifact@v2.0.8
-  #       with:
-  #         name: ${{ matrix.channel }}
-  #         path: build/${{ matrix.channel }}
-  #     - uses: KikimoraGames/itch-publish@v0.0.3
-  #       with:
-  #         butlerApiKey: ${{ secrets.BUTLER_API_KEY }}
-  #         gameData: ./build/${{ matrix.template }}
-  #         itchUsername: ${{ env.ITCH_USERNAME }}
-  #         itchGameId: ${{ env.ITCH_GAME_ID }}
-  #         buildChannel: ${{ matrix.channel }}
-  #         buildNumber: ${{ needs.version.outputs.version_hash }}
+  publish:
+    name: Upload to Itch
+    runs-on: windows
+    steps:
+      - name: Publish Private Windows Build Via Butler
+        run: .github/workflows/PublishWindowsBuild.sh
+        shell: sh
