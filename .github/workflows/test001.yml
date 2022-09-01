@@ -3,9 +3,9 @@ name: Build Project
 on: [push]
 
 env: 
-  ITCH_USERNAME: my-username
-  ITCH_GAME_ID: my-game-id
-  
+  ITCH_USERNAME: evil-josh
+  ITCH_GAME_ID: testing-github-actions
+
 jobs:
   build:
     name: Build Project
@@ -164,6 +164,7 @@ jobs:
   #     matrix:
   #       channel:
   #         - windows
+  #         - mac
   #   runs-on: ubuntu-latest
   #   name: Deploy - Itch.io ${{ matrix.template }}
   #   steps:
