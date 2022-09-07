@@ -58,7 +58,7 @@ jobs:
       - name: Build project
         #uses: game-ci/unity-builder@v2
         run: ./.github/workflows/BuildWindows.sh
-        shell: sh
+        shell: bash
         #env:
           # Comment this out if you're using a pro license
 
@@ -165,4 +165,4 @@ jobs:
   
       - name: Upload to itch.io
         run: ./.github/workflows/PublishWindowsBuild.sh
-        shell: sh
+        shell: bash

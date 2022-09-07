@@ -25,14 +25,14 @@ kill $PID_TAIL
 sleep 1
 
 # Burst debug info is placed in the build folder. Remove it so we dont publish with it.
-echo "BUILD DONE. Removing burst debug info..."
-rm -rf "${GITHUB_WORKSPACE}/../../_builds/Windows/METAVOIDAL/METAVOIDAL_BurstDebugInformation_DoNotShip"
+# echo "BUILD DONE. Removing burst debug info..."
+# rm -rf "${GITHUB_WORKSPACE}/../../_builds/Windows/METAVOIDAL/METAVOIDAL_BurstDebugInformation_DoNotShip"
 
 
-sleep 1 
+# sleep 1 
 
-echo BUILD FOLDER CONTENTS
-ls -a "${GITHUB_WORKSPACE}/../../Windows/Windows/METAVOIDAL"
+# echo BUILD FOLDER CONTENTS
+# ls -a "${GITHUB_WORKSPACE}/../../Windows/Windows/METAVOIDAL"
 
 
-sleep 5
+# sleep 5
