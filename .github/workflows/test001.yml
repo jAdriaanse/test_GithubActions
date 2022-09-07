@@ -57,7 +57,7 @@ jobs:
       # Build
       - name: Build project
         #uses: game-ci/unity-builder@v2
-        run: powershell ./.github/workflows/BuildWindows.powershell
+        run: ./.github/workflows/BuildWindows.powershell
         shell: powershell
         #env:
           # Comment this out if you're using a pro license
@@ -164,5 +164,5 @@ jobs:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN}}
   
       - name: Upload to itch.io
-        run: powershell ./.github/workflows/PublishWindowsBuild.powershell
+        run: ./.github/workflows/PublishWindowsBuild.powershell
         shell: powershell
