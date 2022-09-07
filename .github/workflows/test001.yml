@@ -60,7 +60,7 @@ jobs:
       - name: Build project
         uses: game-ci/unity-builder@v2
         #run: ./.github/workflows/BuildWindows.powershell
-        shell: powershell
+        #shell: powershell
         #env:
           # Comment this out if you're using a pro license
 
