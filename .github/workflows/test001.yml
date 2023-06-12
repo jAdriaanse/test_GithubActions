@@ -166,3 +166,4 @@ jobs:
       - name: Upload to itch.io
         run: ./.github/workflows/PublishWindowsBuild.sh
         shell: bash
+        
